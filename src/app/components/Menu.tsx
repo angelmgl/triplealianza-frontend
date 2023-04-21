@@ -33,19 +33,20 @@ const Menu: React.FC<Props> = ({ items }) => {
                 )}
             >
                 <ul className="flex justify-center items-center">
-                    {items.map((item: MenuItemType) => (
-                        <li
-                            key={item.id}
-                            className="uppercase hover:bg-wine-dark lg:text-lg font-semibold"
-                        >
-                            <Link
-                                className="block py-3 px-4 lg:px-6"
-                                href={item.url}
+                    {items.length > 0 &&
+                        items.map((item: MenuItemType) => (
+                            <li
+                                key={item.id}
+                                className="uppercase hover:bg-wine-dark lg:text-lg font-semibold"
                             >
-                                {item.text}
-                            </Link>
-                        </li>
-                    ))}
+                                <Link
+                                    className="block py-3 px-4 lg:px-6"
+                                    href={item.url}
+                                >
+                                    {item.text}
+                                </Link>
+                            </li>
+                        ))}
                 </ul>
             </nav>
             <button
