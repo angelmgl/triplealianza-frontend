@@ -20,6 +20,7 @@ export default function RootLayout({
     return (
         <html lang="es-py">
             <body className={font.className}>
+                {/* @ts-expect-error Server Component */}
                 <Header />
                 {children}
             </body>

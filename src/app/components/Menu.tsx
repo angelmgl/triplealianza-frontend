@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { MenuItemType } from "../types";
 
 function classNames(
     condition: boolean,
@@ -14,7 +15,11 @@ function classNames(
     return finalClasses;
 }
 
-const Menu: React.FC = () => {
+interface Props {
+    items: MenuItemType[];
+}
+
+const Menu: React.FC<Props> = ({ items }) => {
     const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
 
     return (
@@ -28,36 +33,19 @@ const Menu: React.FC = () => {
                 )}
             >
                 <ul className="flex justify-center items-center">
-                    <li className="uppercase hover:bg-wine-dark lg:text-lg font-semibold">
-                        <Link className="block py-3 px-4 lg:px-6" href="/">
-                            Inicio
-                        </Link>
-                    </li>
-                    <li className="uppercase hover:bg-wine-dark lg:text-lg font-semibold">
-                        <Link className="block py-3 px-4 lg:px-6" href="/">
-                            General
-                        </Link>
-                    </li>
-                    <li className="uppercase hover:bg-wine-dark lg:text-lg font-semibold">
-                        <Link className="block py-3 px-4 lg:px-6" href="/">
-                            Campañas
-                        </Link>
-                    </li>
-                    <li className="uppercase hover:bg-wine-dark lg:text-lg font-semibold">
-                        <Link className="block py-3 px-4 lg:px-6" href="/">
-                            Batallas
-                        </Link>
-                    </li>
-                    <li className="uppercase hover:bg-wine-dark lg:text-lg font-semibold">
-                        <Link className="block py-3 px-4 lg:px-6" href="/">
-                            Personajes
-                        </Link>
-                    </li>
-                    <li className="uppercase hover:bg-wine-dark lg:text-lg font-semibold">
-                        <Link className="block py-3 px-4 lg:px-6" href="/">
-                            Galería
-                        </Link>
-                    </li>
+                    {items.map((item: MenuItemType) => (
+                        <li
+                            key={item.id}
+                            className="uppercase hover:bg-wine-dark lg:text-lg font-semibold"
+                        >
+                            <Link
+                                className="block py-3 px-4 lg:px-6"
+                                href={item.url}
+                            >
+                                {item.text}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </nav>
             <button
