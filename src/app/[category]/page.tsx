@@ -62,7 +62,7 @@ export default async function Category(slugParams: SlugParamsType) {
             <header className="h-[250px] relative bg-wine-light flex flex-col items-center justify-center cover-overlay">
                 <Image
                     alt={data.title}
-                    src={data.featured_image}
+                    src={data.featured_image.image}
                     fill={true}
                     style={{ objectFit: "cover" }}
                 />
@@ -81,7 +81,7 @@ export default async function Category(slugParams: SlugParamsType) {
                         paginatedPosts.results.map((post) => (
                             <PostCard
                                 key={post.id}
-                                image={post.featured_image}
+                                image={post.featured_image.image}
                                 title={post.title}
                                 description={post.description}
                                 url={`/${slugParams.params.category}/${post.slug}`}

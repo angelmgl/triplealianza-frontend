@@ -5,13 +5,19 @@ export interface MenuItemType {
     order: number;
 }
 
+export interface ImageType {
+    id: number;
+    title: string;
+    image: string;
+};
+
 export interface CategoryType {
     id: number;
     title: string;
     seo_title: string;
     slug: string;
     description: string;
-    featured_image: string;
+    featured_image: ImageType;
     content: string;
     created_at: string;
     updated_at: string;
@@ -19,7 +25,7 @@ export interface CategoryType {
 
 export interface PostPreviewType {
     id: number;
-    featured_image: string;
+    featured_image: ImageType;
     title: string;
     description: string;
     slug: string;
@@ -27,7 +33,7 @@ export interface PostPreviewType {
 
 export interface PostType {
     id: number;
-    featured_image: string;
+    featured_image: ImageType;
     title: string;
     seo_title: string;
     description: string;

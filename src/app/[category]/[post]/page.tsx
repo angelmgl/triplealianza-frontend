@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { PostType } from "../../types";
 import DateWidget from "../../components/DateWidget";
-import PostCard from "../../components/PostCard";
 
 interface SlugParamsType {
     params: {
@@ -44,7 +43,7 @@ export default async function Post(slugParams: SlugParamsType) {
             <header className="h-[250px] relative bg-wine-light flex flex-col items-center justify-center cover-overlay">
                 <Image
                     alt={data.title}
-                    src={data.featured_image}
+                    src={data.featured_image.image}
                     fill={true}
                     style={{ objectFit: "cover" }}
                 />
