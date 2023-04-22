@@ -25,6 +25,18 @@ export interface PostPreviewType {
     slug: string;
 }
 
+export interface PostType {
+    id: number;
+    featured_image: string;
+    title: string;
+    seo_title: string;
+    description: string;
+    slug: string;
+    content: string;
+    created_at: string;
+    updated_at: string;
+}
+
 export interface PaginatedCategoryType {
     count: number;
     next: number | null;

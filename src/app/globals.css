@@ -60,6 +60,7 @@ body {
 }
 .content img {
     height: auto !important;
+    margin: 24px 0;
 }
 
 @media screen and (max-width: 768px) {

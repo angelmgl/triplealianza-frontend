@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { CategoryType, PaginatedCategoryType, PostPreviewType } from "../types";
+import { CategoryType, PaginatedCategoryType } from "../types";
 import DateWidget from "../components/DateWidget";
-import Link from "next/link";
 import PostCard from "../components/PostCard";
 
 interface SlugParamsType {
