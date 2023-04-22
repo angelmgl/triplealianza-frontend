@@ -32,12 +32,16 @@ body {
 .content p {
     margin-bottom: 12px;
 }
-.content h2, h3, h4, h5, h6 {
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
     font-weight: 700;
     margin-top: 28px;
     margin-bottom: 12px;
     padding-left: 15px;
-    border-left: 5px solid #C01F1F;
+    border-left: 5px solid #c01f1f;
 }
 .content h2 {
     font-size: 32px;
@@ -53,6 +57,9 @@ body {
 }
 .content h6 {
     font-size: 18px;
+}
+.content img {
+    height: auto !important;
 }
 
 @media screen and (max-width: 768px) {

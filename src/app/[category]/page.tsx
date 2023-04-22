@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { CategoryType } from "../types";
+import { CategoryType, PaginatedCategoryType, PostPreviewType } from "../types";
 import DateWidget from "../components/DateWidget";
+import Link from "next/link";
+import PostCard from "../components/PostCard";
 
 interface SlugParamsType {
     params: {
@@ -8,7 +10,7 @@ interface SlugParamsType {
     };
 }
 
-// function to fetch API data from Categories endpoint
+// function to fetch category data from Categories endpoint
 const fetchCategoryData = async (slug: string): Promise<CategoryType> => {
     let url = process.env.NEXT_PUBLIC_API_BASE + "/api/categories/" + slug;
     const response = await fetch(url);
@@ -18,6 +20,21 @@ const fetchCategoryData = async (slug: string): Promise<CategoryType> => {
         throw new Error(`Failed to fetch category ${slug}!`);
     }
     let data: CategoryType = await response.json();
+    return data;
+};
+
+// function to fetch category posts from Posts endpoint
+const fetchCategoryPosts = async (
+    slug: string
+): Promise<PaginatedCategoryType> => {
+    let url = process.env.NEXT_PUBLIC_API_BASE + "/api/posts/category/" + slug;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error(`Failed to fetch posts from category ${slug}!`);
+    }
+    let data: PaginatedCategoryType = await response.json();
     return data;
 };
 
@@ -37,6 +54,9 @@ export default async function Category(slugParams: SlugParamsType) {
     const data: CategoryType = await fetchCategoryData(
         slugParams.params.category
     );
+    let paginatedPosts: PaginatedCategoryType = await fetchCategoryPosts(
+        slugParams.params.category
+    );
 
     return (
         <main>
@@ -52,8 +72,26 @@ export default async function Category(slugParams: SlugParamsType) {
                 </h1>
                 <DateWidget date={data.updated_at} />
             </header>
-            <div className="container py-12 md:py-20 content">
-                <div dangerouslySetInnerHTML={{ __html: data.content }} />
+            <div className="container py-12 md:py-20">
+                <div
+                    className="content"
+                    dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {paginatedPosts.results.length > 0 ? (
+                        paginatedPosts.results.map((post) => (
+                            <PostCard
+                                key={post.id}
+                                image={post.featured_image}
+                                title={post.title}
+                                description={post.description}
+                                url={`/${slugParams.params.category}/${post.slug}`}
+                            />
+                        ))
+                    ) : (
+                        <p>No hay resultados aún...</p>
+                    )}
+                </div>
             </div>
         </main>
     );

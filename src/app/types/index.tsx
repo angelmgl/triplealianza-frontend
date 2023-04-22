@@ -16,3 +16,18 @@ export interface CategoryType {
     created_at: string;
     updated_at: string;
 }
+
+export interface PostPreviewType {
+    id: number;
+    featured_image: string;
+    title: string;
+    description: string;
+    slug: string;
+}
+
+export interface PaginatedCategoryType {
+    count: number;
+    next: number | null;
+    previous: number | null;
+    results: PostPreviewType[];
+}
