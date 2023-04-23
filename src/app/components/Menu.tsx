@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MenuItemType } from "../types";
+import { usePathname } from "next/navigation";
 import classNames from "../helpers/classNames";
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const Menu: React.FC<Props> = ({ items }) => {
+    const pathname = usePathname();
     const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
 
     return (
@@ -28,7 +30,11 @@ const Menu: React.FC<Props> = ({ items }) => {
                             <li
                                 key={item.id}
                                 onClick={() => setMenuOpen(!isMenuOpen)}
-                                className="uppercase hover:bg-wine-dark lg:text-lg font-semibold"
+                                className={classNames(
+                                    pathname == item.url,
+                                    "relative uppercase hover:bg-wine-dark lg:text-lg font-semibold",
+                                    "active-page bg-light text-wine md:bg-wine md:text-light hover:bg-light md:hover:bg-wine-dark"
+                                )}
                             >
                                 <Link
                                     className="block py-3 px-4 lg:px-6"
