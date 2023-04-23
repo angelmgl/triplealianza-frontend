@@ -22,9 +22,9 @@ export default function PostCard({ image, title, description, url }: Props) {
             <h3 className="text-2xl font-semibold text-center my-2">
                 {title}
             </h3>
-            <p className="px-4 my-2">{description}</p>
+            <p className="px-4 my-3">{description}</p>
             <Link
-                className="block bg-wine hover:bg-wine-light text-center py-2 uppercase font-medium"
+                className="block text-light bg-wine hover:bg-wine-light text-center py-3 uppercase font-medium"
                 href={url}
             >
                 Ver más

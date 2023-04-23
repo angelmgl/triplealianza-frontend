@@ -1,6 +1,7 @@
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const metadata = {
     title: "Triple Alianza",
@@ -23,6 +24,7 @@ export default function RootLayout({
                 {/* @ts-expect-error Server Component */}
                 <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );
