@@ -92,14 +92,14 @@ const Slider: React.FC<Props> = ({ items }) => {
             {/* left arrow */}
             <div
                 onClick={prevSlide}
-                className="md:hidden group-hover:block z-20 absolute bottom-1 md:top-[50%] -translate-x-0 md:-translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-light/10 hover:bg-light/50 hover:text-wine transition-all text-white cursor-pointer"
+                className="md:hidden group-hover:block z-20 absolute bottom-1 md:bottom-auto md:top-[50%] md:-translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-light/10 hover:bg-light/50 hover:text-wine transition-all text-white cursor-pointer"
             >
                 <FiChevronLeft className="lg:text-4xl" />
             </div>
             {/* right arrow */}
             <div
                 onClick={nextSlide}
-                className="md:hidden group-hover:block z-20 absolute bottom-1 md:top-[50%] -translate-x-0 md:-translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-light/10 hover:bg-light/50 hover:text-wine transition-all text-white cursor-pointer"
+                className="md:hidden group-hover:block z-20 absolute bottom-1 md:bottom-auto md:top-[50%] md:-translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-light/10 hover:bg-light/50 hover:text-wine transition-all text-white cursor-pointer"
             >
                 <FiChevronRight className="lg:text-4xl" />
             </div>

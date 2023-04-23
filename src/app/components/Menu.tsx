@@ -27,6 +27,7 @@ const Menu: React.FC<Props> = ({ items }) => {
                         items.map((item: MenuItemType) => (
                             <li
                                 key={item.id}
+                                onClick={() => setMenuOpen(!isMenuOpen)}
                                 className="uppercase hover:bg-wine-dark lg:text-lg font-semibold"
                             >
                                 <Link
