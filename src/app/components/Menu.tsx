@@ -3,17 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { MenuItemType } from "../types";
-
-function classNames(
-    condition: boolean,
-    defaultClasses: string,
-    newClasses: string
-): string {
-    let finalClasses = condition
-        ? `${defaultClasses} ${newClasses}`
-        : defaultClasses;
-    return finalClasses;
-}
+import classNames from "../helpers/classNames";
 
 interface Props {
     items: MenuItemType[];
