@@ -13,7 +13,7 @@ const nextConfig = {
             },
             {
                 protocol: "https",
-                hostname: "triplealianza.com.py",
+                hostname: "api.triplealianza.com.py",
                 port: "",
                 pathname: "/media/**",
             },
