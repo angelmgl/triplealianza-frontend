@@ -31,9 +31,20 @@ export interface PostPreviewType {
     title: string;
     description: string;
     slug: string;
+    category: {
+        id: number;
+        title: string;
+        slug: string;
+    }
 }
 
-export interface PostType extends BasePostType {}
+export interface PostType extends BasePostType {
+    category: {
+        id: number;
+        title: string;
+        slug: string;
+    }
+}
 
 export interface PaginatedCategoryType {
     count: number;
