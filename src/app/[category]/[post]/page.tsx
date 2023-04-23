@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PostType } from "../../types";
 import DateWidget from "../../components/DateWidget";
+import populateMetatags from "@/app/helpers/metatags";
 
 interface SlugParamsType {
     params: {
@@ -26,11 +27,13 @@ export async function generateMetadata(slugParams: SlugParamsType) {
     let data: PostType = await fetchPostData(
         slugParams.params.post
     );
+    const metatags = populateMetatags(
+        data.seo_title,
+        data.description,
+        data.featured_image.image
+    );
 
-    return {
-        title: data.seo_title,
-        description: data.description,
-    };
+    return metatags;
 }
 
 export default async function Post(slugParams: SlugParamsType) {

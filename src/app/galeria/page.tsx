@@ -2,6 +2,7 @@ import Image from "next/image";
 import { PageType, ImageType } from "../types";
 import { splitArrayIntoChunks } from "../helpers/array";
 import MasonryGallery from "../components/MasonryGallery";
+import populateMetatags from "../helpers/metatags";
 
 // function to fetch Galería content from pages/galeria endpoint
 const fetchGalleryData = async (): Promise<PageType> => {
@@ -33,11 +34,13 @@ const fetchImages = async (): Promise<ImageType[][]> => {
 // function to populate SEO metadata in <head> html tag
 export async function generateMetadata() {
     let data: PageType = await fetchGalleryData();
+    const metatags = populateMetatags(
+        data.seo_title,
+        data.description,
+        data.featured_image.image
+    );
 
-    return {
-        title: data.seo_title,
-        description: data.description,
-    };
+    return metatags;
 }
 
 export default async function Gallery() {

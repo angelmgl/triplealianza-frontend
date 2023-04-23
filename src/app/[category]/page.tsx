@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CategoryType, PaginatedCategoryType } from "../types";
 import DateWidget from "../components/DateWidget";
 import PostCard from "../components/PostCard";
+import populateMetatags from "../helpers/metatags";
 
 interface SlugParamsType {
     params: {
@@ -42,11 +43,13 @@ export async function generateMetadata(slugParams: SlugParamsType) {
     let data: CategoryType = await fetchCategoryData(
         slugParams.params.category
     );
+    const metatags = populateMetatags(
+        data.seo_title,
+        data.description,
+        data.featured_image.image
+    );
 
-    return {
-        title: data.seo_title,
-        description: data.description,
-    };
+    return metatags;
 }
 
 export default async function Category(slugParams: SlugParamsType) {

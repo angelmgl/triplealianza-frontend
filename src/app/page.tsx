@@ -1,4 +1,5 @@
 import Slider from "./components/Slider";
+import populateMetatags from "./helpers/metatags";
 import { PageType, SlideType } from "./types";
 
 // function to fetch home content from pages/home endpoint
@@ -30,11 +31,13 @@ const fetchSlides = async (): Promise<SlideType[]> => {
 // function to populate SEO metadata in <head> html tag
 export async function generateMetadata() {
     let data: PageType = await fetchHomeData();
+    const metatags = populateMetatags(
+        data.seo_title,
+        data.description,
+        data.featured_image.image
+    );
 
-    return {
-        title: data.seo_title,
-        description: data.description,
-    };
+    return metatags;
 }
 
 export default async function Home() {
