@@ -58,7 +58,7 @@ const Slider: React.FC<Props> = ({ items }) => {
 
     return (
         <div
-            className="h-[500px] w-full relative group"
+            className="h-[500px] w-full relative group text-light"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
         >

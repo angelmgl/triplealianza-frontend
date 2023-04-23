@@ -53,7 +53,7 @@ export default async function Gallery() {
                     fill={true}
                     style={{ objectFit: "cover" }}
                 />
-                <h1 className="text-6xl font-semibold relative z-10">
+                <h1 className="text-6xl font-semibold relative z-10 text-light">
                     {data.title}
                 </h1>
             </header>

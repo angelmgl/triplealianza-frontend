@@ -7,7 +7,7 @@ interface Props {
 
 export default function DateWidget(props: Props) {
     return (
-        <div className="mt-4 z-10 flex gap-2">
+        <div className="mt-4 z-10 flex gap-2 text-light">
             <FiCalendar className="text-lg translate-y-[3px]" />
             <p>{formatDate(props.date)}</p>
         </div>

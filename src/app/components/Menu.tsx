@@ -24,7 +24,7 @@ const Menu: React.FC<Props> = ({ items }) => {
                     "open"
                 )}
             >
-                <ul className="flex justify-center items-center">
+                <ul className="flex justify-center items-center text-light">
                     {items.length > 0 &&
                         items.map((item: MenuItemType) => (
                             <li
