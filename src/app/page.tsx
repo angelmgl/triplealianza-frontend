@@ -31,7 +31,7 @@ const fetchSlides = async (): Promise<SlideType[]> => {
 
 // function to fetch latest posts
 const fetchLatestPosts = async (): Promise<PostPreviewType[]> => {
-    let url = process.env.NEXT_PUBLIC_API_BASE + "/api/posts/";
+    let url = process.env.NEXT_PUBLIC_API_BASE + "/api/posts/latest/";
     const response = await fetch(url);
 
     if (!response.ok) {

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Menu from "./Menu";
 import { MenuItemType } from "../types";
 
+// function to fetch Menu links from API
 const fetchMenuItems = async (): Promise<MenuItemType[]> => {
     let url = process.env.NEXT_PUBLIC_API_BASE + "/api/menu/";
     const response = await fetch(url);
