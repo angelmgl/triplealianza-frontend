@@ -2,9 +2,6 @@ export default function populateMetatags(title: string, description: string, ima
     return {
         title: title,
         description: description,
-        alternates: {
-            canonical: process.env.NEXT_PUBLIC_APP_URL,
-        },
         openGraph: {
             title: title,
             description: description,
