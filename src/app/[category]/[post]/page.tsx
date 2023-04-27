@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PostType } from "../../types";
+import { PostPreviewType, PostType } from "../../types";
 import DateWidget from "../../components/DateWidget";
 import populateMetatags from "@/app/helpers/metatags";
 
@@ -21,6 +21,17 @@ const fetchPostData = async (slug: string): Promise<PostType> => {
     let data: PostType = await response.json();
     return data;
 };
+
+// Return a list of `params` to populate the [category] and [slug] dynamic segment
+export async function generateStaticParams() {
+    let url = process.env.NEXT_PUBLIC_API_BASE + "/api/posts/";
+    const posts: PostPreviewType[] = await fetch(url).then((res) => res.json());
+
+    return posts.map((post) => ({
+        category: post.category.slug,
+        slug: post.slug,
+    }));
+}
 
 // function to populate SEO metadata in <head> html tag
 export async function generateMetadata(slugParams: SlugParamsType) {

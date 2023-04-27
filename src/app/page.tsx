@@ -68,7 +68,9 @@ export default async function Home() {
                     dangerouslySetInnerHTML={{ __html: data.content }}
                 />
                 <hr className="my-16" />
-                <h2 className="text-3xl md:text-4xl font-bold border-l-4 border-wine pl-5">Últimos artículos...</h2>
+                <h2 className="text-3xl md:text-4xl font-bold border-l-4 border-wine pl-5">
+                    Últimos artículos...
+                </h2>
                 <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {latestPosts.length > 0 ? (
                         latestPosts.map((post) => (
