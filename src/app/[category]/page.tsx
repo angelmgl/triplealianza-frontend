@@ -62,14 +62,14 @@ export default async function Category(slugParams: SlugParamsType) {
 
     return (
         <main>
-            <header className="h-[250px] relative bg-wine-light flex flex-col items-center justify-center cover-overlay">
+            <header className="h-[250px] relative bg-wine-light text-light flex flex-col items-center justify-center cover-overlay">
                 <Image
                     alt={data.title}
                     src={data.featured_image.image}
                     fill={true}
                     style={{ objectFit: "cover" }}
                 />
-                <h1 className="text-6xl font-semibold relative z-10 text-light">
+                <h1 className="text-6xl font-semibold relative z-10">
                     {data.title}
                 </h1>
                 <DateWidget date={data.updated_at} />

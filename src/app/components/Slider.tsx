@@ -73,12 +73,12 @@ const Slider: React.FC<Props> = ({ items }) => {
                     <article
                         className={classNames(
                             currentIndex !== index,
-                            "flex flex-col items-center max-w-[500px] relative z-10 px-4",
+                            "flex flex-col items-center max-w-[550px] relative z-10 px-4",
                             "hidden"
                         )}
                         key={item.id}
                     >
-                        <h2 className="text-4xl font-semibold text-center">
+                        <h2 className="text-4xl md:text-5xl font-semibold text-center">
                             {item.title}
                         </h2>
                         <p className="text-center my-4">{item.description}</p>
