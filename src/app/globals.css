@@ -62,6 +62,13 @@ body {
     height: auto !important;
     margin: 24px 0;
 }
+.content a {
+    color: #E62525;
+    text-decoration: underline;
+}
+.content a:hover {
+    color: #C01F1F;
+}
 
 @media screen and (max-width: 768px) {
     #menu {
