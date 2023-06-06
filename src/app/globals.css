@@ -69,6 +69,16 @@ body {
 .content a:hover {
     color: #C01F1F;
 }
+.content ul {
+    list-style: disc;
+    padding-left: 30px;
+    margin-bottom: 15px;
+}
+.content ol {
+    list-style: decimal;
+    padding-left: 30px;
+    margin-bottom: 15px;
+}
 
 @media screen and (max-width: 768px) {
     #menu {
